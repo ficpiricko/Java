@@ -1,0 +1,60 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Dnevni repertoar</title>
+	 <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+<script type="text/javascript">
+	 $("form").submit(function(){
+	 	poruka = "";
+        	if ($("#vreme").val() == "")
+        		poruka += "Vreme ne sme ostati prazno\n";
+        	if ($("#cena").val() == "") 
+        		poruka += "Cena ne sme ostati prazno\n";
+        	if ($("#sala").val() == "" && $("#sala").val() == "1-6" )
+        		poruka += "Sala ne sme ostati prazno\n";
+
+        	if (poruka != ""){
+        		alert(poruka)
+        		return false;
+        	}
+			return true;
+			});
+</script>
+</head>
+<body>
+
+	<form action="Baza" name="login">
+		<table style="border-bottom: 1px dotted #3366ff;
+		border-right: 1px dotted #ff0000;">
+			<tr>
+				<td align="right">Film:</td>
+				<td align="left"><select name="film"><option value="Rampage">Rampage</option><option value=	"Tiho mesto">Tiho mesto</option><option value="Nevesta">Nevesta</option><option value="Ponocno sunce">Ponocno sunce</option></select></td>
+			</tr>
+			<tr>
+				<td align="right">Vreme:</td>
+				<td align="left"><input  name="vreme" id="vreme" type="text" oninvalid="alert('Polja cena,vreme i sala moraju biti popunjena!') name="vreme" required /></td>
+			</tr>
+			<tr>
+				<td align="right">Cena:</td>
+				<td align="left"><input id="cena"  name="cena" type="text"  oninvalid="alert('Polja cena,vreme i sala moraju biti popunjena!');"name="cena" required /></td>
+			</tr>
+			<tr>
+				<td align="right">Sala:</td>
+				<td align="left"><input id="sala"  name="sala" type="text"  oninvalid="alert('Polja cena,vreme i sala moraju biti popunjena!');" name="sala" required/></td>
+			</tr>
+			<tr>
+				<td align="right">Duzina:</td>
+				<td align="left"><input  type="text" name="duzina"/></td>
+			</tr>
+			<tr>
+				<td align="right">Tip:</td>
+				<td align="left"> <select  name="tip"><option value="2D">2D</option><option value="3D">3D</option></select></td>
+			</tr>
+			<tr>
+				<td colspan="2"  align="center"><input type="submit" name="Posalji" value="Dodaj"></td>		
+				</tr>
+		</table>
+	</form>
+</body>
+</html>
